@@ -1,0 +1,53 @@
+@import "lenis/dist/lenis.css";
+@import "tailwindcss";
+
+@theme {
+  /* Revolut Canvas */
+  --color-canvas-dark: #000000;
+  --color-canvas-light: #ffffff;
+  --color-surface-elevated: #16181a;
+  --color-surface-deep: #0a0a0a;
+  --color-surface-soft: #f4f4f4;
+  --color-surface-card: #ffffff;
+
+  /* Revolut Brand */
+  --color-primary: #494fdf;
+  --color-primary-bright: #4f55f1;
+  --color-primary-deep: #3a40c4;
+
+  /* Revolut Text */
+  --color-ink: #191c1f;
+  --color-body: #1f2226;
+  --color-charcoal: #3a3d40;
+  --color-mute: #505a63;
+  --color-ash: #5c5e60;
+  --color-stone: #8d969e;
+  --color-faint: #c9c9cd;
+  --color-on-dark: #ffffff;
+  --color-on-dark-mute: rgba(255, 255, 255, 0.72);
+
+  /* Revolut Hairlines */
+  --color-hairline-light: #e2e2e7;
+  --color-hairline-dark: rgba(255, 255, 255, 0.12);
+  --color-hairline-strong: #191c1f;
+  --color-divider-soft: rgba(255, 255, 255, 0.06);
+
+  /* Revolut Semantic Accents */
+  --color-accent-teal: #00a87e;
+  --color-accent-blue-link: #376cd5;
+  --color-accent-warning: #ec7e00;
+  --color-accent-danger: #e23b4a;
+
+  /* Font */
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply antialiased font-sans bg-canvas-dark text-white selection:bg-primary selection:text-white;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
