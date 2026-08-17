@@ -67,7 +67,18 @@ const SpotlightProject = () => {
                   >
                     Get started <ArrowRight className="w-5 h-5" />
                   </motion.a>
-                  <div className="flex flex-wrap gap-6 mt-5">
+                  <div className="flex flex-wrap gap-x-6 gap-y-3 mt-5">
+                    <motion.a
+                      href="https://github.com/Kumkumlover/Job-Tracker/blob/main/evaluation_methodology.md"
+                      target="_blank"
+                      rel="noreferrer"
+                      whileHover={{ scale: 1.03 }}
+                      whileTap={{ scale: 0.97 }}
+                      transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+                      className="text-white font-bold text-[16px] tracking-[0.24px] hover:text-primary transition-colors inline-flex items-center gap-2"
+                    >
+                      View Evals Report →
+                    </motion.a>
                     <motion.a
                       href="https://github.com/Kumkumlover/Job-Tracker"
                       target="_blank"
