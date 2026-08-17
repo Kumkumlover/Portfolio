@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Mail, Globe, ChevronDown, FileText } from 'lucide-react';
-import { FadeInUp, motion } from '../lib/animations';
+import { Mail, ChevronDown, FileText } from 'lucide-react';
+import { FadeInUp, CopyEmailButton, motion } from '../lib/animations';
 
 // Nextleap custom SVG icon
 const NextleapIcon = ({ size = 16 }) => (
@@ -282,27 +282,39 @@ const ExperienceFooter = () => {
 
       {/* Part B: Contact CTA Band */}
       <FadeInUp>
-        <section className="bg-primary py-[88px] px-6 text-center">
-          <h2
-            className="text-white font-medium"
-            style={{ fontSize: 'clamp(32px, 5vw, 48px)', lineHeight: 1.0, letterSpacing: '-0.48px' }}
-          >
-            Let's build something together.
-          </h2>
-          <p className="text-[rgba(255,255,255,0.72)] text-[18px] mt-6">
-            Open for PM opportunities · Bangalore, India
-          </p>
-          <div className="flex flex-wrap justify-center gap-4 mt-10">
-            <motion.a
-              href="mailto:shikharguptah2@gmail.com"
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
-              transition={{ type: 'spring', stiffness: 400, damping: 17 }}
-              className="h-[48px] px-[28px] rounded-full bg-canvas-light text-ink font-semibold text-[16px] tracking-[0.24px] hover:bg-surface-soft transition-colors inline-flex items-center gap-2"
+        <section className="bg-primary py-[88px] px-6 text-center relative overflow-hidden">
+          {/* Ambient 3D Depth Glow */}
+          <div aria-hidden="true" className="absolute inset-0 pointer-events-none overflow-hidden z-0">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.12)_0%,transparent_70%)] animate-float-slow" />
+          </div>
+
+          <div className="relative z-10 max-w-[800px] mx-auto">
+            <h2
+              className="text-white font-medium"
+              style={{ fontSize: 'clamp(32px, 5vw, 48px)', lineHeight: 1.0, letterSpacing: '-0.48px' }}
             >
-              Get in touch
-              <Mail size={20} />
-            </motion.a>
+              Let's build something together.
+            </h2>
+            <p className="text-[rgba(255,255,255,0.72)] text-[18px] mt-6">
+              Open for PM opportunities · Bangalore, India
+            </p>
+            <div className="flex flex-wrap justify-center items-center gap-4 mt-10">
+              <motion.a
+                href="mailto:shikharguptah2@gmail.com"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+                className="h-[48px] px-[28px] rounded-full bg-canvas-light text-ink font-semibold text-[16px] tracking-[0.24px] hover:bg-surface-soft transition-colors inline-flex items-center gap-2 shadow-lg"
+              >
+                Get in touch
+                <Mail size={20} />
+              </motion.a>
+              <CopyEmailButton
+                email="shikharguptah2@gmail.com"
+                showLabel={true}
+                buttonClassName="h-[48px] px-[24px] rounded-full border border-white text-white font-semibold text-[15px] tracking-[0.24px] hover:bg-[rgba(255,255,255,0.1)] transition-colors"
+              />
+            </div>
           </div>
         </section>
       </FadeInUp>
@@ -342,8 +354,14 @@ const ExperienceFooter = () => {
             </div>
           </div>
 
-          <div className="mt-6 pt-6 border-t border-divider-soft w-full text-center text-stone text-[13px]">
-            shikharguptah2@gmail.com · +91 7987177269
+          <div className="mt-6 pt-6 border-t border-divider-soft w-full text-center text-stone text-[13px] flex items-center justify-center gap-2">
+            <CopyEmailButton
+              email="shikharguptah2@gmail.com"
+              showLabel={true}
+              buttonClassName="text-stone hover:text-white transition-colors"
+            />
+            <span>·</span>
+            <span>+91 7987177269</span>
           </div>
         </div>
       </footer>

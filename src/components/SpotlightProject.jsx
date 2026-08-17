@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowRight, X } from 'lucide-react';
-import { FadeInUp, motion } from '../lib/animations';
+import { FadeInUp, Tilt3DCard, motion } from '../lib/animations';
 import { AnimatePresence } from 'framer-motion';
 
 const SpotlightProject = () => {
@@ -25,8 +25,9 @@ const SpotlightProject = () => {
           SPOTLIGHT
         </h2>
         <FadeInUp>
-          <div className="bg-surface-elevated rounded-[28px] p-8 md:p-16 border border-hairline-dark hover:border-[rgba(0,168,126,0.2)] transition-colors duration-300">
-            <div className="flex flex-col lg:flex-row gap-12 items-start">
+          <Tilt3DCard maxRotation={4} className="rounded-[28px]">
+            <div className="bg-surface-elevated rounded-[28px] p-8 md:p-16 border border-hairline-dark hover:border-[rgba(0,168,126,0.2)] transition-colors duration-300 shadow-2xl">
+              <div className="flex flex-col lg:flex-row gap-12 items-start">
               {/* Left side */}
               <div className="lg:w-5/12">
                 <span className="inline-flex bg-primary text-white text-[13px] font-medium rounded-full px-3 py-1 mb-6">
@@ -119,6 +120,7 @@ const SpotlightProject = () => {
               </div>
             </div>
           </div>
+          </Tilt3DCard>
         </FadeInUp>
       </div>
 

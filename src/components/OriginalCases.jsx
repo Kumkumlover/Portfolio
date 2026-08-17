@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
-import { FadeInUp, StaggerContainer, staggerChild, motion } from '../lib/animations';
+import { FadeInUp, StaggerContainer, staggerChild, Tilt3DCard, motion } from '../lib/animations';
 
 const OriginalCases = () => {
   const cases = [
@@ -42,49 +42,49 @@ const OriginalCases = () => {
 
         <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {cases.map((item) => (
-            <motion.div
-              key={item.name}
-              variants={staggerChild}
-              className="bg-canvas-light border border-hairline-light rounded-[20px] overflow-hidden flex flex-col hover:border-hairline-strong hover:-translate-y-0.5 transition-all duration-300"
-            >
-              {/* Thumbnail */}
-              <div className="w-full aspect-[16/9] overflow-hidden">
-                <img
-                  src={item.thumbnail}
-                  alt={item.name}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              {/* Content */}
-              <div className="p-[32px] flex flex-col flex-1">
-                <h3 className="text-[24px] font-medium text-ink mb-1">{item.name}</h3>
-                <p className="text-[14px] text-stone mb-4">{item.subtitle}</p>
-                <p className="text-[16px] text-body leading-[1.5] mb-6 flex-1">
-                  {item.desc}
-                </p>
-                <div className="flex flex-wrap gap-2 mb-8">
-                  {item.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-[12px] py-[4px] rounded-full bg-surface-soft text-ink text-[13px] font-medium"
+            <motion.div key={item.name} variants={staggerChild} className="h-full">
+              <Tilt3DCard maxRotation={6} className="h-full rounded-[20px]">
+                <div className="bg-canvas-light border border-hairline-light rounded-[20px] overflow-hidden flex flex-col hover:border-hairline-strong transition-all duration-300 tile-shadow h-full">
+                  {/* Thumbnail */}
+                  <div className="w-full aspect-[16/9] overflow-hidden">
+                    <img
+                      src={item.thumbnail}
+                      alt={item.name}
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                  {/* Content */}
+                  <div className="p-[32px] flex flex-col flex-1">
+                    <h3 className="text-[24px] font-medium text-ink mb-1">{item.name}</h3>
+                    <p className="text-[14px] text-stone mb-4">{item.subtitle}</p>
+                    <p className="text-[16px] text-body leading-[1.5] mb-6 flex-1">
+                      {item.desc}
+                    </p>
+                    <div className="flex flex-wrap gap-2 mb-8">
+                      {item.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="px-[12px] py-[4px] rounded-full bg-surface-soft text-ink text-[13px] font-medium"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <motion.a
+                      href={item.link}
+                      target="_blank"
+                      rel="noreferrer"
+                      whileHover={{ scale: 1.03 }}
+                      whileTap={{ scale: 0.97 }}
+                      transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+                      className="h-[48px] px-[28px] rounded-full bg-canvas-dark text-white font-semibold text-[16px] tracking-[0.24px] hover:bg-surface-elevated transition-colors inline-flex items-center gap-2 self-start mt-auto"
                     >
-                      {tag}
-                    </span>
-                  ))}
+                      View Case Study
+                      <ArrowRight size={20} />
+                    </motion.a>
+                  </div>
                 </div>
-                <motion.a
-                  href={item.link}
-                  target="_blank"
-                  rel="noreferrer"
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.97 }}
-                  transition={{ type: 'spring', stiffness: 400, damping: 17 }}
-                  className="h-[48px] px-[28px] rounded-full bg-canvas-dark text-white font-semibold text-[16px] tracking-[0.24px] hover:bg-surface-elevated transition-colors inline-flex items-center gap-2 self-start"
-                >
-                  View Case Study
-                  <ArrowRight size={20} />
-                </motion.a>
-              </div>
+              </Tilt3DCard>
             </motion.div>
           ))}
         </StaggerContainer>

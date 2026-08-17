@@ -4,7 +4,8 @@
  * Respects prefers-reduced-motion.
  */
 import { useEffect, useRef, useState, useCallback } from 'react';
-import { motion, useScroll, useTransform, useInView } from 'framer-motion';
+import { motion, useScroll, useTransform, useInView, useMotionValue, useSpring, AnimatePresence } from 'framer-motion';
+import { Check, Copy } from 'lucide-react';
 
 // ─── Reduced Motion Hook ────────────────────────────────────
 export function usePrefersReducedMotion() {
@@ -119,6 +120,167 @@ export function useCardGlow() {
   return { ref, handleMouseMove, handleMouseLeave };
 }
 
+// ─── 3D Parallax Tilt Card Component ────────────────────────
+export function Tilt3DCard({
+  children,
+  className = '',
+  maxRotation = 6,
+  perspective = 1000,
+  glare = true,
+  glareOpacity = 0.12,
+  glareColor = 'rgba(255, 255, 255, 0.16)',
+  style = {},
+  onClick,
+  ...props
+}) {
+  const ref = useRef(null);
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  const mouseXSpring = useSpring(x, { stiffness: 280, damping: 24 });
+  const mouseYSpring = useSpring(y, { stiffness: 280, damping: 24 });
+
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], [maxRotation, -maxRotation]);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], [-maxRotation, maxRotation]);
+
+  const [isHovered, setIsHovered] = useState(false);
+  const [glarePos, setGlarePos] = useState({ x: 50, y: 50 });
+  const prefersReduced = usePrefersReducedMotion();
+
+  const handleMouseMove = (e) => {
+    if (prefersReduced || !ref.current) return;
+    const rect = ref.current.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+
+    const xPct = mouseX / width - 0.5;
+    const yPct = mouseY / height - 0.5;
+
+    x.set(xPct);
+    y.set(yPct);
+
+    if (glare) {
+      setGlarePos({
+        x: Math.round((mouseX / width) * 100),
+        y: Math.round((mouseY / height) * 100),
+      });
+    }
+  };
+
+  const handleMouseEnter = () => {
+    if (!prefersReduced) setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+    x.set(0);
+    y.set(0);
+  };
+
+  if (prefersReduced) {
+    return (
+      <div className={className} style={style} onClick={onClick} {...props}>
+        {children}
+      </div>
+    );
+  }
+
+  return (
+    <motion.div
+      ref={ref}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      onClick={onClick}
+      style={{
+        transformStyle: 'preserve-3d',
+        perspective: `${perspective}px`,
+        rotateX,
+        rotateY,
+        ...style,
+      }}
+      className={`relative ${className}`}
+      {...props}
+    >
+      <div style={{ transformStyle: 'preserve-3d', height: '100%' }}>
+        {children}
+      </div>
+
+      {glare && (
+        <div
+          className="pointer-events-none absolute inset-0 rounded-[inherit] transition-opacity duration-300 z-30 overflow-hidden"
+          style={{
+            opacity: isHovered ? 1 : 0,
+            background: `radial-gradient(450px circle at ${glarePos.x}% ${glarePos.y}%, ${glareColor}, transparent 70%)`,
+          }}
+        />
+      )}
+    </motion.div>
+  );
+}
+
+// ─── One-Click Email Copy Tooltip Button ────────────────────
+export function CopyEmailButton({
+  email = 'shikharguptah2@gmail.com',
+  className = '',
+  buttonClassName = '',
+  showLabel = false,
+  children,
+}) {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    navigator.clipboard.writeText(email);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2200);
+  };
+
+  return (
+    <div className={`relative inline-flex items-center group ${className}`}>
+      <motion.button
+        type="button"
+        onClick={handleCopy}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+        className={`relative inline-flex items-center gap-2 cursor-pointer transition-colors ${buttonClassName}`}
+        aria-label="Copy email address"
+        title="Copy email to clipboard"
+      >
+        {children ? (
+          children
+        ) : (
+          <>
+            {copied ? <Check size={16} className="text-primary" /> : <Copy size={16} />}
+            {showLabel && <span>{email}</span>}
+          </>
+        )}
+      </motion.button>
+
+      {/* Floating Tooltip Pill */}
+      <AnimatePresence>
+        {copied && (
+          <motion.div
+            initial={{ opacity: 0, y: 6, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -4, scale: 0.9 }}
+            transition={{ type: 'spring', stiffness: 400, damping: 22 }}
+            className="absolute -top-10 left-1/2 -translate-x-1/2 px-3 py-1 bg-surface-elevated text-white text-[12px] font-medium rounded-full shadow-2xl pointer-events-none whitespace-nowrap z-50 flex items-center gap-1.5 border border-hairline-dark"
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+            Copied!
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
+
 // ─── Animated Counter ───────────────────────────────────────
 // Simple numeric counter that counts up when in view.
 export function AnimatedCounter({ value, suffix = '', prefix = '', duration = 1.5 }) {
@@ -151,3 +313,4 @@ export function AnimatedCounter({ value, suffix = '', prefix = '', duration = 1.
 
 // Re-export motion for convenient use
 export { motion };
+

@@ -1,6 +1,6 @@
 import React from 'react';
-import { ArrowRight, BookOpen } from 'lucide-react';
-import { FadeInUp, StaggerContainer, staggerChild, TextReveal, AnimatedCounter, motion } from '../lib/animations';
+import { ArrowRight, BookOpen, Mail } from 'lucide-react';
+import { FadeInUp, StaggerContainer, staggerChild, TextReveal, AnimatedCounter, Tilt3DCard, CopyEmailButton, motion } from '../lib/animations';
 
 const GithubIcon = ({ size = 24 }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -34,8 +34,14 @@ export default function Hero() {
   return (
     <>
       {/* Part A: Hero Section */}
-      <section className="bg-canvas-dark pt-[120px] pb-[48px] px-6">
-        <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <section className="relative bg-canvas-dark pt-[120px] pb-[48px] px-6 overflow-hidden">
+        {/* Ambient 3D Depth Orbs */}
+        <div aria-hidden="true" className="absolute inset-0 pointer-events-none overflow-hidden z-0">
+          <div className="absolute top-[8%] left-[12%] w-[460px] h-[460px] rounded-full bg-[radial-gradient(circle,rgba(73,79,223,0.12)_0%,transparent_70%)] animate-float-slow" />
+          <div className="absolute top-[18%] right-[10%] w-[380px] h-[380px] rounded-full bg-[radial-gradient(circle,rgba(0,168,126,0.09)_0%,transparent_70%)] animate-float-slow-reverse" />
+        </div>
+
+        <div className="relative z-10 max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           {/* Left Column */}
           <div className="lg:col-span-7">
@@ -81,14 +87,14 @@ export default function Hero() {
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
                   transition={{ type: 'spring', stiffness: 400, damping: 17 }}
-                  className="h-[48px] px-[28px] rounded-full bg-canvas-light text-ink font-semibold text-[16px] tracking-[0.24px] hover:bg-surface-soft transition-colors inline-flex items-center gap-2"
+                  className="h-[48px] px-[28px] rounded-full bg-canvas-light text-ink font-semibold text-[16px] tracking-[0.24px] hover:bg-surface-soft transition-colors inline-flex items-center gap-2 shadow-lg"
                 >
                   Explore Products <ArrowRight size={18} />
                 </motion.a>
                 <motion.a 
                   href="https://hercules-cdn.com/file_4VWyEJ04olngM3DpRhutcGns" 
                   target="_blank" 
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer" 
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
                   transition={{ type: 'spring', stiffness: 400, damping: 17 }}
@@ -101,7 +107,13 @@ export default function Hero() {
             
             {/* Social row */}
             <FadeInUp delay={0.6}>
-              <div className="flex gap-3 mt-6">
+              <div className="flex flex-wrap items-center gap-3 mt-6">
+                <CopyEmailButton
+                  email="shikharguptah2@gmail.com"
+                  buttonClassName="w-10 h-10 rounded-full bg-surface-elevated border border-hairline-dark flex items-center justify-center text-stone hover:text-white hover:border-on-dark-mute"
+                >
+                  <Mail size={18} />
+                </CopyEmailButton>
                 <motion.a 
                   href="https://www.linkedin.com/in/shikhar-gupta-505b0b21b/" 
                   target="_blank" 
@@ -110,6 +122,7 @@ export default function Hero() {
                   whileTap={{ scale: 0.97 }}
                   transition={{ type: 'spring', stiffness: 400, damping: 17 }}
                   className="w-10 h-10 rounded-full bg-surface-elevated border border-hairline-dark flex items-center justify-center text-stone hover:text-white hover:border-on-dark-mute transition-colors"
+                  title="LinkedIn Profile"
                 >
                   <LinkedinIcon size={18} />
                 </motion.a>
@@ -121,6 +134,7 @@ export default function Hero() {
                   whileTap={{ scale: 0.97 }}
                   transition={{ type: 'spring', stiffness: 400, damping: 17 }}
                   className="w-10 h-10 rounded-full bg-surface-elevated border border-hairline-dark flex items-center justify-center text-stone hover:text-white hover:border-on-dark-mute transition-colors"
+                  title="GitHub Profile"
                 >
                   <GithubIcon size={18} />
                 </motion.a>
@@ -132,6 +146,7 @@ export default function Hero() {
                   whileTap={{ scale: 0.97 }}
                   transition={{ type: 'spring', stiffness: 400, damping: 17 }}
                   className="w-10 h-10 rounded-full bg-surface-elevated border border-hairline-dark flex items-center justify-center text-stone hover:text-white hover:border-on-dark-mute transition-colors"
+                  title="Medium Articles"
                 >
                   <BookOpen size={18} />
                 </motion.a>
@@ -151,16 +166,18 @@ export default function Hero() {
             </FadeInUp>
           </div>
           
-          {/* Right Column — Profile Photo */}
+          {/* Right Column — Profile Photo with 3D Tilt */}
           <div className="hidden lg:block lg:col-span-5">
             <FadeInUp delay={0.3}>
-              <div className="rounded-[28px] overflow-hidden border border-hairline-dark aspect-square group">
-                <img 
-                  src="https://cdn.hercules.app/file_xcBcDBCfhX2Mf8hti27y7IXd" 
-                  alt="Shikhar Gupta" 
-                  className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500" 
-                />
-              </div>
+              <Tilt3DCard maxRotation={8} className="rounded-[28px]">
+                <div className="rounded-[28px] overflow-hidden border border-hairline-dark aspect-square group shadow-2xl">
+                  <img 
+                    src="https://cdn.hercules.app/file_xcBcDBCfhX2Mf8hti27y7IXd" 
+                    alt="Shikhar Gupta" 
+                    className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500" 
+                  />
+                </div>
+              </Tilt3DCard>
             </FadeInUp>
           </div>
           
