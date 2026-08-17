@@ -144,8 +144,8 @@ export default function Skills() {
     <section id="skills" className="scroll-mt-16 bg-canvas-light text-ink py-[88px] px-6">
       <div className="max-w-[1200px] mx-auto">
         <FadeInUp>
-          <div className="mb-10 md:mb-12 mx-auto max-w-3xl text-center">
-            <p className="text-stone text-[14px] font-semibold uppercase tracking-[0.1em] mb-4">
+          <div className="mb-10 md:mb-12">
+            <p className="text-stone text-[14px] font-semibold uppercase tracking-[0.1em] mb-6">
               04 / SKILLS
             </p>
             <h2
@@ -154,13 +154,13 @@ export default function Skills() {
             >
               The <span className="text-primary italic">toolkit.</span>
             </h2>
-            <p className="text-body text-[18px] leading-[1.56] max-w-2xl mx-auto">
+            <p className="text-body text-[18px] leading-[1.56] max-w-2xl">
               Product craft, AI-native fluency, and the technical depth to actually ship it.
             </p>
           </div>
         </FadeInUp>
 
-        <div className="mx-auto max-w-4xl space-y-10">
+        <div className="space-y-10">
           {skillCategories.map((group, groupIdx) => (
             <FadeInUp key={group.category} delay={groupIdx * 0.1}>
               <div>

@@ -126,9 +126,6 @@ export function Tilt3DCard({
   className = '',
   maxRotation = 6,
   perspective = 1000,
-  glare = true,
-  glareOpacity = 0.12,
-  glareColor = 'rgba(255, 255, 255, 0.16)',
   style = {},
   onClick,
   ...props
@@ -143,8 +140,6 @@ export function Tilt3DCard({
   const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], [maxRotation, -maxRotation]);
   const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], [-maxRotation, maxRotation]);
 
-  const [isHovered, setIsHovered] = useState(false);
-  const [glarePos, setGlarePos] = useState({ x: 50, y: 50 });
   const prefersReduced = usePrefersReducedMotion();
 
   const handleMouseMove = (e) => {
@@ -161,21 +156,9 @@ export function Tilt3DCard({
 
     x.set(xPct);
     y.set(yPct);
-
-    if (glare) {
-      setGlarePos({
-        x: Math.round((mouseX / width) * 100),
-        y: Math.round((mouseY / height) * 100),
-      });
-    }
-  };
-
-  const handleMouseEnter = () => {
-    if (!prefersReduced) setIsHovered(true);
   };
 
   const handleMouseLeave = () => {
-    setIsHovered(false);
     x.set(0);
     y.set(0);
   };
@@ -192,7 +175,6 @@ export function Tilt3DCard({
     <motion.div
       ref={ref}
       onMouseMove={handleMouseMove}
-      onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onClick={onClick}
       style={{
@@ -208,16 +190,6 @@ export function Tilt3DCard({
       <div style={{ transformStyle: 'preserve-3d', height: '100%' }}>
         {children}
       </div>
-
-      {glare && (
-        <div
-          className="pointer-events-none absolute inset-0 rounded-[inherit] transition-opacity duration-300 z-30 overflow-hidden"
-          style={{
-            opacity: isHovered ? 1 : 0,
-            background: `radial-gradient(450px circle at ${glarePos.x}% ${glarePos.y}%, ${glareColor}, transparent 70%)`,
-          }}
-        />
-      )}
     </motion.div>
   );
 }

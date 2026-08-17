@@ -37,15 +37,15 @@ function App() {
       <Hero />
       {/* Band 5: Spotlight — JobSuite Tracker (dark canvas) */}
       <SpotlightProject />
-      {/* Band 6: Products Catalogue (light canvas) */}
+      {/* Band 6: Products Catalogue (light canvas) — 01 */}
       <ProductsCatalogue />
-      {/* Band 7: Original Product Cases - 0-1 case studies (soft canvas) */}
-      <OriginalCases />
-      {/* Band 8: Case Studies & Teardowns (light canvas) */}
+      {/* Band 7: Case Studies & Teardowns (light canvas) — 02 */}
       <CaseStudies />
-      {/* Band 9: Skills Toolkit (light canvas) */}
+      {/* Band 8: Original Product Cases - 0-1 case studies (soft canvas) — 03 */}
+      <OriginalCases />
+      {/* Band 9: Skills Toolkit (light canvas) — 04 */}
       <Skills />
-      {/* Band 10+11: Experience + Contact CTA + Footer (dark canvas) */}
+      {/* Band 10+11: Experience + Contact CTA + Footer (dark canvas) — 05 */}
       <ExperienceFooter />
     </div>
   );

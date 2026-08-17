@@ -57,7 +57,7 @@ export default function ProductsCatalogue() {
 
           {/* Card 2: Analytics Q&A Agent */}
           <motion.div variants={staggerChild} className="h-full">
-            <Tilt3DCard maxRotation={7} glareColor="rgba(0, 102, 255, 0.14)" className="h-full rounded-[20px]">
+            <Tilt3DCard maxRotation={7} className="h-full rounded-[20px]">
               <div className="bg-canvas-light border border-hairline-light rounded-[20px] p-[32px] flex flex-col h-full hover:border-hairline-strong transition-all duration-300 tile-shadow">
                 <h3 className="text-[32px] font-medium leading-[1.19] tracking-[-0.32px] mb-4 text-ink">
                   Analytics Q&A Agent
@@ -90,7 +90,7 @@ export default function ProductsCatalogue() {
 
           {/* Card 3: LILA BLACK */}
           <motion.div variants={staggerChild} className="h-full">
-            <Tilt3DCard maxRotation={7} glareColor="rgba(73, 79, 223, 0.14)" className="h-full rounded-[20px]">
+            <Tilt3DCard maxRotation={7} className="h-full rounded-[20px]">
               <div className="bg-surface-soft border border-hairline-light rounded-[20px] p-[32px] flex flex-col h-full hover:border-hairline-strong transition-all duration-300 tile-shadow">
                 <h3 className="text-[32px] font-medium leading-[1.19] tracking-[-0.32px] mb-4 text-ink">
                   LILA BLACK
