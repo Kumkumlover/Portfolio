@@ -45,6 +45,15 @@ export default function Navigation() {
               Case Studies
             </motion.a>
             <motion.a
+              href="#skills"
+              className="text-on-dark-mute text-[14px] font-semibold hover:text-white transition-colors"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+            >
+              Skills
+            </motion.a>
+            <motion.a
               href="#experience"
               className="text-on-dark-mute text-[14px] font-semibold hover:text-white transition-colors"
               whileHover={{ scale: 1.05 }}

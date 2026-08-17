@@ -6,6 +6,7 @@ import SpotlightProject from './components/SpotlightProject';
 import ProductsCatalogue from './components/ProductsCatalogue';
 import CaseStudies from './components/CaseStudies';
 import OriginalCases from './components/OriginalCases';
+import Skills from './components/Skills';
 import ExperienceFooter from './components/ExperienceFooter';
 
 function App() {
@@ -42,7 +43,9 @@ function App() {
       <OriginalCases />
       {/* Band 8: Case Studies & Teardowns (light canvas) */}
       <CaseStudies />
-      {/* Band 9+10: Experience + Contact CTA + Footer (dark canvas) */}
+      {/* Band 9: Skills Toolkit (light canvas) */}
+      <Skills />
+      {/* Band 10+11: Experience + Contact CTA + Footer (dark canvas) */}
       <ExperienceFooter />
     </div>
   );

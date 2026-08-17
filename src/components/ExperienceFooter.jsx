@@ -258,25 +258,6 @@ const ExperienceFooter = () => {
               </div>
             </div>
           </FadeInUp>
-
-          {/* Skills Matrix */}
-          <FadeInUp>
-            <div className="mt-12 flex flex-wrap gap-2">
-              {[
-                'AI & LLMs', 'PRDs & Specifications', 'Growth Analytics',
-                'System Architecture', 'User Research', 'SQL',
-                'Prompt Engineering', 'Wireframing', 'Agile/Scrum',
-                'A/B Testing', 'Stakeholder Management'
-              ].map((skill) => (
-                <span
-                  key={skill}
-                  className="px-[12px] py-[4px] rounded-full bg-surface-elevated border border-hairline-dark text-stone text-[13px] font-medium"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </FadeInUp>
         </div>
       </section>
 
