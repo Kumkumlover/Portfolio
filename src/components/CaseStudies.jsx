@@ -44,16 +44,19 @@ export default function CaseStudies() {
       <div className="max-w-[1200px] mx-auto">
         <FadeInUp>
           <div className="text-stone text-[14px] font-semibold uppercase tracking-[0.1em] mb-6">
-            02 / CASE STUDIES
+            02 / PRODUCT TEARDOWNS
           </div>
           
           {/* Section 1: Deep dive articles and teardowns */}
           <h2 
-            className="text-ink font-medium mb-10" 
+            className="text-ink font-medium mb-4" 
             style={{ fontSize: 'clamp(32px, 5vw, 64px)', lineHeight: 1.0, letterSpacing: '-0.64px' }}
           >
-            Deep dive articles and teardowns
+            How I think when <span className="text-primary italic">nobody asked.</span>
           </h2>
+          <p className="text-body text-[18px] leading-[1.56] max-w-2xl mb-10">
+            Self-directed product strategy, unit-economics teardowns, and root-cause analyses across high-growth consumer products.
+          </p>
         </FadeInUp>
 
         <StaggerContainer className="space-y-6 mb-6">

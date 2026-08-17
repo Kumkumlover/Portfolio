@@ -8,16 +8,16 @@ export default function ProductsCatalogue() {
       <div className="max-w-[1200px] mx-auto">
         <FadeInUp>
           <div className="text-stone text-[14px] font-semibold uppercase tracking-[0.1em] mb-6">
-            01 / PRODUCTS
+            01 / 0→1 BUILDS
           </div>
           <h2 
             className="text-ink font-medium mb-4" 
             style={{ fontSize: 'clamp(40px, 6vw, 80px)', lineHeight: 1.0, letterSpacing: '-0.8px' }}
           >
-            All products
+            Products I shipped <span className="text-primary italic">myself.</span>
           </h2>
           <p className="text-body text-[18px] leading-[1.56] max-w-2xl mb-12">
-            From deterministic math engines to spatial analytics visualizers. Built from scratch to solve real architectural bottlenecks.
+            From deterministic math engines to spatial analytics visualizers. Built to solve real architectural bottlenecks—not just slide decks.
           </p>
         </FadeInUp>
 

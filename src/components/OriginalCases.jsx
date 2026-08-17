@@ -27,16 +27,16 @@ const OriginalCases = () => {
       <div className="max-w-[1200px] mx-auto">
         <FadeInUp className="mb-12">
           <p className="text-stone text-[14px] font-semibold uppercase tracking-[0.1em] mb-6">
-            03 / ORIGINAL PRODUCT CASES
+            03 / ZERO TO ONE
           </p>
           <h2
             className="text-ink font-medium mb-4"
             style={{ fontSize: 'clamp(40px, 6vw, 80px)', lineHeight: 1.0, letterSpacing: '-0.8px' }}
           >
-            From zero to one
+            From vague signal to <span className="text-primary italic">shipped MVP.</span>
           </h2>
           <p className="text-body text-[18px] leading-[1.56] max-w-2xl">
-            End-to-end product cases from problem discovery through MVP launch and metrics definition.
+            End-to-end product cases: uncovering non-obvious user friction, vibe-coding prototypes, and defining metrics that matter.
           </p>
         </FadeInUp>
 

@@ -22,7 +22,7 @@ const SpotlightProject = () => {
     <section className="bg-canvas-dark px-6 pb-[120px]">
       <div className="max-w-[1200px] mx-auto">
         <h2 className="text-stone text-[13px] font-semibold uppercase tracking-[0.1em] mb-8">
-          SPOTLIGHT
+          0→1 BUILD · SPOTLIGHT
         </h2>
         <FadeInUp>
           <Tilt3DCard maxRotation={4} className="rounded-[28px]">
@@ -30,8 +30,9 @@ const SpotlightProject = () => {
               <div className="flex flex-col lg:flex-row gap-12 items-start">
               {/* Left side */}
               <div className="lg:w-5/12">
-                <span className="inline-flex bg-primary text-white text-[13px] font-medium rounded-full px-3 py-1 mb-6">
-                  Spotlight Product
+                <span className="inline-flex items-center gap-1.5 bg-primary text-white text-[12px] font-semibold rounded-full px-3 py-1 mb-6">
+                  <span className="size-1.5 rounded-full bg-white animate-pulse" />
+                  Shipped Live · AI Copilot
                 </span>
                 <h3
                   className="text-white font-medium mb-4"
@@ -44,7 +45,7 @@ const SpotlightProject = () => {
                   Firstcall
                 </h3>
                 <p className="text-on-dark-mute text-[18px] leading-[1.56] tracking-[-0.09px] mb-8 max-w-lg">
-                  Full stack cold outreach system<br/>and CRM tracker.
+                  An AI job discovery copilot and cold outreach CRM that turns application chaos into structured pipelines.
                 </p>
                 <div className="flex flex-wrap gap-2 mb-8">
                   {['Multistep Evals', 'LLM workflows', 'Pattern engine', 'Chrome extention', 'Open source', 'RAG'].map((tag) => (

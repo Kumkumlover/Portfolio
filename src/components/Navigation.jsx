@@ -33,7 +33,7 @@ export default function Navigation() {
               whileTap={{ scale: 0.95 }}
               transition={{ type: 'spring', stiffness: 400, damping: 17 }}
             >
-              Products
+              0→1 Builds
             </motion.a>
             <motion.a
               href="#case-studies"
@@ -42,7 +42,7 @@ export default function Navigation() {
               whileTap={{ scale: 0.95 }}
               transition={{ type: 'spring', stiffness: 400, damping: 17 }}
             >
-              Case Studies
+              Teardowns
             </motion.a>
             <motion.a
               href="#skills"

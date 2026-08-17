@@ -89,25 +89,28 @@ const ExperienceFooter = () => {
         <div className="max-w-[1200px] mx-auto">
           <FadeInUp>
             <p className="text-stone text-[14px] font-semibold uppercase tracking-[0.1em] mb-6">
-              04 / EXPERIENCE
+              05 / TRACK RECORD
             </p>
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-4">
               <h2
                 className="text-white font-medium"
                 style={{ fontSize: 'clamp(40px, 6vw, 80px)', lineHeight: 1.0, letterSpacing: '-0.8px' }}
               >
-                Experience
+                Where I've <span className="text-primary italic">moved the needle.</span>
               </h2>
               <a
                 href="https://hercules-cdn.com/file_4VWyEJ04olngM3DpRhutcGns"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 h-[44px] px-[22px] rounded-full bg-surface-elevated border border-hairline-dark text-stone text-[14px] font-semibold hover:text-white hover:border-on-dark-mute transition-colors self-start md:self-auto"
+                className="inline-flex items-center gap-2 h-[44px] px-[22px] rounded-full bg-surface-elevated border border-hairline-dark text-stone text-[14px] font-semibold hover:text-white hover:border-on-dark-mute transition-colors self-start md:self-auto shrink-0"
               >
                 <FileText size={16} />
                 View Resume
               </a>
             </div>
+            <p className="text-on-dark-mute text-[18px] leading-[1.56] max-w-2xl mb-16">
+              Scaling AI CRM products at SuperAGI and driving enterprise health-tech feature adoption at Digital Harbor.
+            </p>
           </FadeInUp>
 
           {/* Timeline & Expandable Experience Cards */}
