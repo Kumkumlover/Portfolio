@@ -59,7 +59,7 @@ const SpotlightProject = () => {
                 </div>
                 <div className="flex flex-col items-start">
                   <motion.a
-                    href="https://firstcall-landing-gq894hcw7-shikharguptah2-gmailcoms-projects.vercel.app/"
+                    href="https://firstcall-landing.vercel.app/"
                     target="_blank"
                     rel="noreferrer"
                     whileHover={{ scale: 1.03 }}
