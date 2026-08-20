@@ -92,7 +92,7 @@ export default function Hero() {
                   Explore Products <ArrowRight size={18} />
                 </motion.a>
                 <motion.a 
-                  href="https://hercules-cdn.com/file_4VWyEJ04olngM3DpRhutcGns" 
+                  href="https://assets.nextleap.app/user-resume/ShikharCV-7c0b16d5-37a8-4e01-8e57-18080673c7b1.pdf" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   whileHover={{ scale: 1.03 }}

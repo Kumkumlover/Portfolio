@@ -99,7 +99,7 @@ const ExperienceFooter = () => {
                 Where I've <span className="text-primary italic">moved the needle.</span>
               </h2>
               <a
-                href="https://hercules-cdn.com/file_4VWyEJ04olngM3DpRhutcGns"
+                href="https://assets.nextleap.app/user-resume/ShikharCV-7c0b16d5-37a8-4e01-8e57-18080673c7b1.pdf"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 h-[44px] px-[22px] rounded-full bg-surface-elevated border border-hairline-dark text-stone text-[14px] font-semibold hover:text-white hover:border-on-dark-mute transition-colors self-start md:self-auto shrink-0"
@@ -211,7 +211,7 @@ const ExperienceFooter = () => {
           <div className="flex items-center gap-4 mb-16 pt-2 border-t border-hairline-dark">
             <span className="text-stone text-[14px]">Want the full picture?</span>
             <a
-              href="https://hercules-cdn.com/file_4VWyEJ04olngM3DpRhutcGns"
+              href="https://assets.nextleap.app/user-resume/ShikharCV-7c0b16d5-37a8-4e01-8e57-18080673c7b1.pdf"
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-2 text-white text-[14px] font-semibold hover:text-primary transition-colors"
